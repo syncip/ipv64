@@ -1,3 +1,7 @@
+# How to use
+pip install ipv64
+
+# How to run
 import ipv64
 
 update_interval = 30 # seconds
