@@ -1,3 +1,4 @@
+# pip install dnspython
 import requests
 from nslookup import Nslookup
 from datetime import datetime as dt
