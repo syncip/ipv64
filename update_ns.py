@@ -3,11 +3,9 @@ from nslookup import Nslookup
 from datetime import datetime as dt
 import time
 
-domain_name = "noip.ipv64.net"
+domain_name = "hm80.ipv64.net"
 update_key = "RHt5YieXOgQVlE3WZpMCDBA2"
 check_time = 30
-
-ipv6_old, ipv4_old = "", ""
 
 def get_ip():
     try:
