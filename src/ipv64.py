@@ -1,6 +1,5 @@
 import dns.resolver
 import requests
-#import time
 from datetime import datetime as dt
 import argparse
 
