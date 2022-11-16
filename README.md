@@ -28,7 +28,10 @@ The Script did __NOT__ run in a loop, you need to run it manually.
 #### check every minute
 ```* * * * * /usr/bin/python3 -m ipv64 -d YOUR_DOMAIN.ipv64.net -uh YOUR_UPDATE_HASH -d DISCORD_WEBHOOK```
 #### check every 30 seconds
-```* * * * * /usr/bin/python3 -m ipv64 -d YOUR_DOMAIN.ipv64.net -uh YOUR_UPDATE_HASH -d DISCORD_WEBHOOK  * * * * * sleep 30; /usr/bin/python3 -m ipv64 -d YOUR_DOMAIN.ipv64.net -uh YOUR_UPDATE_HASH -d DISCORD_WEBHOOK```
+```
+* * * * * /usr/bin/python3 -m ipv64 -d YOUR_DOMAIN.ipv64.net -uh YOUR_UPDATE_HASH -d DISCORD_WEBHOOK
+* * * * * sleep 30; /usr/bin/python3 -m ipv64 -d YOUR_DOMAIN.ipv64.net -uh YOUR_UPDATE_HASH -d DISCORD_WEBHOOK
+```
 
 # Help
 For the Help run:  
