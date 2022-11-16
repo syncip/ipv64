@@ -1,7 +1,7 @@
 __pycache__/
-setup.py
+/setup.py
 dist/
 dist/*
 src/ipv64.egg-info
 src/ipv64.egg-info/*
-requirements.txt
+/setup.cfg
