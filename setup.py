@@ -1,18 +1,16 @@
-from setuptools import setup, find_packages
-
-
+from setuptools import setup
 setup(
-    name='ipv64',
-    version='0.1',
-    license='MIT',
-    author="R60",
-    author_email='pypi.nmvk0@getrekt.win',
-    packages=find_packages('src'),
-    package_dir={'': 'src'},
-    url='https://github.com/syncip/ipv64.git',
-    keywords='ipv64 updater',
-    install_requires=[
+  name = 'ipv64',         # How you named your package folder (MyLib)
+  version = '0.2',      # Start with a small number and increase it with every change you make
+  description = 'Updater for ipv64.net',   # Give a short description about your library
+  author = 'R60',                   # Type in your name
+  author_email = 'pypi.nmvk0@getrekt.win',      # Type in your E-Mail
+  py_modules=["ipv64"],
+  package_dir={'': 'src'},
+  keywords = ['ipv64', 'dyndns', 'updater'],   # Keywords that define your package best
+  install_requires=[            # I get to this in a second
           'dnspython',
+          'requests',
+          'argparse',
       ],
-
 )
