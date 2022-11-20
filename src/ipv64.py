@@ -155,39 +155,48 @@ def do_update(prefix, domain, update_key, webhook, only_ipv4, only_ipv6):
     ipv4_ns, ipv6_ns = nslookup(prefix, domain, ipv4, ipv6, only_ipv4, only_ipv6)
 
     # Check if the IP of the host and the domain are the same
-    if ipv4 == ipv4_ns and ipv6 == ipv6_ns:
-        print(str(dt.now()) + ": No update needed")
-        exit()
+    if ipv4 == ipv4_ns:
+        print(str(dt.now()) + ": No A update needed")
+        status_a = False
     else:
         # Update the DNS records of the domain with the current IP of the host
-        status_a, status_aaaa = set_ip(prefix, domain, update_key, ipv4, ipv6, only_ipv4, only_ipv6)
+        status_a, status_aaaa = set_ip(prefix, domain, update_key, ipv4, False, only_ipv4, only_ipv6)
         print(str(dt.now()) + f": Update for {prefix}.{domain}: A: {str(status_a)} ({ipv4})  | AAAA: {str(status_aaaa)} ({ipv6})")
-        
-        if status_a == 200:
-            msg = f":green_circle: Success Updated A record for {prefix}.{domain} to {ipv4}, ipv64.net Response: OK"
-            discord_msg(msg, webhook)
-        elif status_a == 400:
-            msg = f":red_circle: Error updating A record for {prefix}.{domain}, ipv64.net Response: Bad Request"
-            discord_msg(msg, webhook)
-        elif status_a == 401:
-            msg = f":red_circle: Error updating A record for {prefix}.{domain}, ipv64.net Response: Unauthorized"
-            discord_msg(msg, webhook)
-        elif status_a == 429:
-            msg = f":red_circle: Error updating A record for {prefix}.{domain}, ipv64.net Response: Too Many Requests"
-            discord_msg(msg, webhook)
-        
-        if status_aaaa == 200:
-            msg = f":green_circle: Success Updated AAAA record for {prefix}.{domain} to {ipv6}, ipv64.net Response: OK"
-            discord_msg(msg, webhook)
-        elif status_aaaa == 400:
-            msg = f":red_circle: Error updating AAAA record for {prefix}.{domain}, ipv64.net Response: Bad Request"
-            discord_msg(msg, webhook)
-        elif status_aaaa == 401:
-            msg = f":red_circle: Error updating AAAA record for {prefix}.{domain}, ipv64.net Response: Unauthorized"
-            discord_msg(msg, webhook)
-        elif status_aaaa == 429:
-            msg = f":red_circle: Error updating AAAA record for {prefix}.{domain}, ipv64.net Response: Too Many Requests"
-            discord_msg(msg, webhook)
+
+    if ipv6 == ipv6_ns:
+        print(str(dt.now()) + ": No AAAA update needed")
+        status_aaaa = False
+    else:
+        # Update the DNS records of the domain with the current IP of the host
+        status_a, status_aaaa = set_ip(prefix, domain, update_key, False, ipv6, only_ipv4, only_ipv6)
+        print(str(dt.now()) + f": Update for {prefix}.{domain}: A: {str(status_a)} ({ipv4})  | AAAA: {str(status_aaaa)} ({ipv6})")
+
+
+    if status_a == 200:
+        msg = f":green_circle: Success Updated A record for {prefix}.{domain} to {ipv4}, ipv64.net Response: OK"
+        discord_msg(msg, webhook)
+    elif status_a == 400:
+        msg = f":red_circle: Error updating A record for {prefix}.{domain}, ipv64.net Response: Bad Request"
+        discord_msg(msg, webhook)
+    elif status_a == 401:
+        msg = f":red_circle: Error updating A record for {prefix}.{domain}, ipv64.net Response: Unauthorized"
+        discord_msg(msg, webhook)
+    elif status_a == 429:
+        msg = f":red_circle: Error updating A record for {prefix}.{domain}, ipv64.net Response: Too Many Requests"
+        discord_msg(msg, webhook)
+    
+    if status_aaaa == 200:
+        msg = f":green_circle: Success Updated AAAA record for {prefix}.{domain} to {ipv6}, ipv64.net Response: OK"
+        discord_msg(msg, webhook)
+    elif status_aaaa == 400:
+        msg = f":red_circle: Error updating AAAA record for {prefix}.{domain}, ipv64.net Response: Bad Request"
+        discord_msg(msg, webhook)
+    elif status_aaaa == 401:
+        msg = f":red_circle: Error updating AAAA record for {prefix}.{domain}, ipv64.net Response: Unauthorized"
+        discord_msg(msg, webhook)
+    elif status_aaaa == 429:
+        msg = f":red_circle: Error updating AAAA record for {prefix}.{domain}, ipv64.net Response: Too Many Requests"
+        discord_msg(msg, webhook)
         
         
         exit()
