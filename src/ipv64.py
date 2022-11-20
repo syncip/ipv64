@@ -199,7 +199,7 @@ def do_update(prefix, domain, update_key, webhook, only_ipv4, only_ipv6):
         discord_msg(msg, webhook)
         
         
-        exit()
+    exit()
 
  # ==================== ARGPARSE ====================
 # ask for argprase inputs
