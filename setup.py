@@ -6,7 +6,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
   name = 'ipv64',
-  version = '0.3.1',
+  version = '0.3.2',
   description = 'Updater for ipv64.net',
   author = 'R60',
   author_email = 'pypi.nmvk0@getrekt.win',
@@ -16,9 +16,8 @@ setup(
   keywords = ['ipv64', 'dyndns', 'updater'],
   long_description=long_description,
   long_description_content_type='text/markdown',
-  install_requires=[
-          'dnspython==2.2.1',
-          'requests==2.28.1',
-          'argparse==1.4.0',
-      ],
+  install_requires=['dnspython==2.2.1',
+                    'requests==2.28.1',
+                    'argparse==1.4.0',
+                    ],
 )

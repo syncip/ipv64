@@ -3,3 +3,4 @@ dist
 src/ipv64.egg-info
 setup.cfg
 setup.py
+.pypirc
