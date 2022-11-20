@@ -155,21 +155,27 @@ def do_update(prefix, domain, update_key, webhook, only_ipv4, only_ipv6):
     ipv4_ns, ipv6_ns = nslookup(prefix, domain, ipv4, ipv6, only_ipv4, only_ipv6)
 
     # Check if the IP of the host and the domain are the same
-    if ipv4 == ipv4_ns:
-        print(str(dt.now()) + ": No A update needed")
-        status_a = False
+    if ipv4 == ipv4_ns and ipv6 == ipv6_ns:
+        print(str(dt.now()) + ": A and AAAA is up to date")
+        status_a, status_aaaa = False, False
     else:
-        # Update the DNS records of the domain with the current IP of the host
-        status_a, status_aaaa = set_ip(prefix, domain, update_key, ipv4, False, only_ipv4, only_ipv6)
-        print(str(dt.now()) + f": Update for {prefix}.{domain}: A: {str(status_a)} ({ipv4})  | AAAA: {str(status_aaaa)} ({ipv6})")
+        if ipv4 != False and ipv4 != ipv4_ns and ipv6 != False and ipv6 != ipv6_ns:
+            print(str(dt.now()) + ": A and AAAA is not up to date")
+            status_a, status_aaaa = set_ip(prefix, domain, update_key, ipv4, ipv6, only_ipv4, only_ipv6)
+        
+        elif ipv6 != False and ipv6 != ipv6_ns:
+            print(str(dt.now()) + ": AAAA is not up to date")
+            status_a, status_aaaa = set_ip(prefix, domain, update_key, False, ipv6, only_ipv4, only_ipv6)
 
-    if ipv6 == ipv6_ns:
-        print(str(dt.now()) + ": No AAAA update needed")
-        status_aaaa = False
-    else:
-        # Update the DNS records of the domain with the current IP of the host
-        status_a, status_aaaa = set_ip(prefix, domain, update_key, False, ipv6, only_ipv4, only_ipv6)
-        print(str(dt.now()) + f": Update for {prefix}.{domain}: A: {str(status_a)} ({ipv4})  | AAAA: {str(status_aaaa)} ({ipv6})")
+        elif ipv4 != False and ipv4 != ipv4_ns:
+            print(str(dt.now()) + ": A is not up to date")
+            status_a, status_aaaa = set_ip(prefix, domain, update_key, ipv4, False, only_ipv4, only_ipv6)
+
+
+        # print(str(dt.now()) + ": IP is not up to date")
+        # discord_msg("IP is not up to date", webhook)
+        # # Update the DNS records of the domain with the current IP of the host
+        # status_a, status_aaaa = set_ip(prefix, domain, update_key, ipv4, ipv6, only_ipv4, only_ipv6)
 
 
     if status_a == 200:
