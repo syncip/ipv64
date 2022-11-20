@@ -10,6 +10,11 @@ The libary is avilable at [pypi.org](https://pypi.org/project/pip/)
 or
 ```python -m pip install ipv64```
 
+# How to update
+```pip install ipv64 --upgrade```
+or
+```python -m pip install ipv64 --upgrade```
+
 # How to run
 ## INFO
 The Script did __NOT__ run in a loop, you need to run it manually.
