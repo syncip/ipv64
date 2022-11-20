@@ -5,7 +5,7 @@ import argparse
 import time
 
 # version
-version = "0.3.1"
+version = "0.3.4"
 # gloabl variables
 global headers
 headers = {
