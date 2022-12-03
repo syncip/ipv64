@@ -3,9 +3,10 @@ import requests
 from datetime import datetime as dt
 import argparse
 import time
+import socket
 
 # version
-version = "0.3.4"
+version = "0.3.5"
 # gloabl variables
 global headers
 headers = {
@@ -52,7 +53,11 @@ def nslookup(prefix, domain, ipv4, ipv6, only_ipv4, only_ipv6):
     resolver = dns.resolver.Resolver()
     dns.resolver.Cache(1)
     dns.resolver.Timeout(10)
-    resolver.nameservers = ["195.201.223.103", "157.90.241.20", "2a01:4f8:c2c:559c::1", "2a01:4f8:c012:9c97::1"]
+    ns1_ip6 = socket.getaddrinfo("ns1.ipv64.net", None, socket.AF_INET6)[0][4][0]
+    ns1_ip4 = socket.getaddrinfo("ns1.ipv64.net", None, socket.AF_INET)[0][4][0]
+    ns2_ip6 = socket.getaddrinfo("ns2.ipv64.net", None, socket.AF_INET6)[0][4][0]
+    ns2_ip4 = socket.getaddrinfo("ns2.ipv64.net", None, socket.AF_INET)[0][4][0]
+    resolver.nameservers = [ns1_ip4, ns1_ip6, ns2_ip4, ns2_ip6]
     
     if only_ipv4 == False and only_ipv6 == False:
         only_ipv6 = True
