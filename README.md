@@ -38,7 +38,7 @@ Update A and AAAA record if possible
 
 # Help
 ```python ipv64.py --help
-usage: ipv64.py [-h] -d DOMAIN -uh HASH [-p PREFIX] [-w WEBHOOK] [-4] [-6]
+usage: ipv64.py [-h] -d DOMAIN -uh HASH [-p PREFIX] [-w WEBHOOK] [-gu GOTIFYURL] [-gt GOTIFYTOKEN] [-4] [-6]
 
 Update the IP for a domain on ipv64.net
 
@@ -47,10 +47,14 @@ optional arguments:
   -d DOMAIN, --domain DOMAIN
                         The domain to update
   -uh HASH, --hash HASH
-                        Your DynDNS update hash
+                        Your ipv64 Account Update Token
   -p PREFIX, --prefix PREFIX
                         The prefix for the domain
   -w WEBHOOK, --webhook WEBHOOK
                         The webhook url for discord notifications
+  -gu GOTIFYURL, --gotifyurl GOTIFYURL
+                        Your Gotify URL
+  -gt GOTIFYTOKEN, --gotifytoken GOTIFYTOKEN
+                        Your Gotify Token
   -4, --ipv4            Update only the A record
   -6, --ipv6            Update only the AAAA record```

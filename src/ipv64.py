@@ -53,12 +53,40 @@ def nslookup(prefix, domain, ipv4, ipv6, only_ipv4, only_ipv6):
     resolver = dns.resolver.Resolver()
     dns.resolver.Cache(1)
     dns.resolver.Timeout(10)
-    ns1_ip6 = socket.getaddrinfo("ns1.ipv64.net", None, socket.AF_INET6)[0][4][0]
-    ns1_ip4 = socket.getaddrinfo("ns1.ipv64.net", None, socket.AF_INET)[0][4][0]
-    ns2_ip6 = socket.getaddrinfo("ns2.ipv64.net", None, socket.AF_INET6)[0][4][0]
-    ns2_ip4 = socket.getaddrinfo("ns2.ipv64.net", None, socket.AF_INET)[0][4][0]
-    resolver.nameservers = [ns1_ip4, ns1_ip6, ns2_ip4, ns2_ip6]
     
+    # IPv4
+    try:
+        ns1_ip4 = socket.getaddrinfo("ns1.ipv64.net", None, socket.AF_INET)[0][4][0]
+    except:
+        ns1_ip4 = False
+    try:
+        ns2_ip4 = socket.getaddrinfo("ns2.ipv64.net", None, socket.AF_INET)[0][4][0]
+    except:
+        ns2_ip4 = False
+
+    # IPv6
+    try:
+        ns1_ip6 = socket.getaddrinfo("ns1.ipv64.net", None, socket.AF_INET6)[0][4][0]
+
+    except:
+        ns1_ip6 = False
+    try:
+        ns2_ip6 = socket.getaddrinfo("ns2.ipv64.net", None, socket.AF_INET6)[0][4][0]
+    except:
+        ns2_ip6 = False
+    
+    if ns1_ip4 != False:
+        resolver.nameservers = [ns1_ip4]
+    elif ns2_ip4 != False:
+        resolver.nameservers = [ns2_ip4]
+    elif ns1_ip6 != False:
+        resolver.nameservers = [ns1_ip6]
+    elif ns2_ip6 != False:
+        resolver.nameservers = [ns2_ip6]
+    else:
+        print("ERROR - Nameserver not rechable")
+        exit()
+
     if only_ipv4 == False and only_ipv6 == False:
         only_ipv6 = True
         only_ipv4 = True
@@ -152,7 +180,15 @@ def discord_msg(msg=False, webhook=False):
         except:
             print(str(dt.now()) + ": Discord message failed")
 
-def do_update(prefix, domain, update_key, webhook, only_ipv4, only_ipv6):
+def gotify_msg(msg=False, gotifyurl=False, gotifytoken=False):
+    if gotifyurl != False and gotifytoken != False:
+        resp = requests.post(str(gotifyurl) + '/message?token=' + str(gotifytoken), json={
+        "message": msg,
+        "priority": 5,
+        "title": "ipv64 status update"
+        })
+
+def do_update(prefix, domain, update_key, webhook, only_ipv4, only_ipv6, gotifyurl, gotifytoken):
     # Get the current IP of the host
     ipv4, ipv6 = get_ip(only_ipv4, only_ipv6)
 
@@ -182,32 +218,37 @@ def do_update(prefix, domain, update_key, webhook, only_ipv4, only_ipv6):
         # # Update the DNS records of the domain with the current IP of the host
         # status_a, status_aaaa = set_ip(prefix, domain, update_key, ipv4, ipv6, only_ipv4, only_ipv6)
 
-
+    # IPv4
     if status_a == 200:
-        msg = f":green_circle: Success Updated A record for {prefix}.{domain} to {ipv4}, ipv64.net Response: OK"
-        discord_msg(msg, webhook)
+        msg_a = f"🟩 Success Updated A record for {prefix}.{domain} to {ipv4}, ipv64.net Response: OK"
     elif status_a == 400:
-        msg = f":red_circle: Error updating A record for {prefix}.{domain}, ipv64.net Response: Bad Request"
-        discord_msg(msg, webhook)
+        msg_a = f"🟥 Error updating A record for {prefix}.{domain}, ipv64.net Response: Bad Request"
     elif status_a == 401:
-        msg = f":red_circle: Error updating A record for {prefix}.{domain}, ipv64.net Response: Unauthorized"
-        discord_msg(msg, webhook)
+        msg_a = f"🟥 Error updating A record for {prefix}.{domain}, ipv64.net Response: Unauthorized"
     elif status_a == 429:
-        msg = f":red_circle: Error updating A record for {prefix}.{domain}, ipv64.net Response: Too Many Requests"
-        discord_msg(msg, webhook)
+        msg_a = f"🟥 Error updating A record for {prefix}.{domain}, ipv64.net Response: Too Many Requests"
+
+    if gotifyurl != False and gotifytoken != False and status_a != False:
+        gotify_msg(msg_a, gotifyurl, gotifytoken)
     
+    if webhook != False and status_a != False:
+        discord_msg(msg_a, webhook)
+    
+    # IPv6
     if status_aaaa == 200:
-        msg = f":green_circle: Success Updated AAAA record for {prefix}.{domain} to {ipv6}, ipv64.net Response: OK"
-        discord_msg(msg, webhook)
+        msg_aaaa = f"🟩 Success Updated AAAA record for {prefix}.{domain} to {ipv6}, ipv64.net Response: OK"
     elif status_aaaa == 400:
-        msg = f":red_circle: Error updating AAAA record for {prefix}.{domain}, ipv64.net Response: Bad Request"
-        discord_msg(msg, webhook)
+        msg_aaaa = f"🟥 Error updating AAAA record for {prefix}.{domain}, ipv64.net Response: Bad Request"
     elif status_aaaa == 401:
-        msg = f":red_circle: Error updating AAAA record for {prefix}.{domain}, ipv64.net Response: Unauthorized"
-        discord_msg(msg, webhook)
+        msg_aaaa = f"🟥 Error updating AAAA record for {prefix}.{domain}, ipv64.net Response: Unauthorized"
     elif status_aaaa == 429:
-        msg = f":red_circle: Error updating AAAA record for {prefix}.{domain}, ipv64.net Response: Too Many Requests"
-        discord_msg(msg, webhook)
+        msg_aaaa = f"🟥 Error updating AAAA record for {prefix}.{domain}, ipv64.net Response: Too Many Requests"
+
+    if gotifyurl != False and gotifytoken != False and status_aaaa != False:
+        gotify_msg(msg_aaaa, gotifyurl, gotifytoken)
+    
+    if webhook != False and status_aaaa != False:
+        discord_msg(msg_aaaa, webhook)
         
         
     exit()
@@ -216,11 +257,15 @@ def do_update(prefix, domain, update_key, webhook, only_ipv4, only_ipv6):
 # ask for argprase inputs
 # if no inputs are given, show help
 parser = argparse.ArgumentParser(description='Update the IP for a domain on ipv64.net')
+# ipv64 Arguments
 parser.add_argument('-d', '--domain', help='The domain to update', required=True)
-parser.add_argument('-uh', '--hash', help='Your DynDNS update hash', required=True)
+parser.add_argument('-uh', '--hash', help='Your ipv64 Account Update Token', required=True)
 parser.add_argument('-p', '--prefix', help='The prefix for the domain', default="", required=False)
+# Discord
 parser.add_argument('-w', '--webhook', help='The webhook url for discord notifications', required=False, default=False)
-
+# Gotify
+parser.add_argument('-gu', '--gotifyurl', help='Your Gotify URL', required=False, default=False)
+parser.add_argument('-gt', '--gotifytoken', help='Your Gotify Token', required=False, default=False)
 
 # check if only ipv4 or ipv6 should be updated
 parser.add_argument("-4", "--ipv4", help="Update only the A record", required=False, action='store_true')
@@ -235,4 +280,4 @@ args = parser.parse_args()
 #nslookup(args.prefix, args.domain, args.ipv4, args.ipv6)
 #get_ip(args.ipv4, args.ipv6)
 
-do_update(args.prefix, args.domain, args.hash, args.webhook, args.ipv4, args.ipv6)
+do_update(args.prefix, args.domain, args.hash, args.webhook, args.ipv4, args.ipv6, args.gotifyurl, args.gotifytoken)
