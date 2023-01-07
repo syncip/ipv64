@@ -74,13 +74,22 @@ def nslookup(prefix, domain, ipv4, ipv6, only_ipv4, only_ipv6):
     except:
         ns2_ip6 = False
     
-    if ns1_ip4 != False and ns1_ip6 != False:
+    if ns1_ip4 != False and ns1_ip6 == False:
+        resolver.nameservers = [ns1_ip4]
+    elif ns2_ip4 != False and ns2_ip6 == False:
+        resolver.nameservers = [ns2_ip4]
+    elif ns1_ip6 != False and ns1_ip4 == False:
+        resolver.nameservers = [ns1_ip6]
+    elif ns2_ip6 != False and ns2_ip4 == False:
+        resolver.nameservers = [ns2_ip6]
+    elif ns1_ip4 != False and ns1_ip6 != False:
         resolver.nameservers = [ns1_ip4, ns1_ip6]
     elif ns2_ip4 != False and ns2_ip6 != False:
         resolver.nameservers = [ns2_ip4, ns2_ip6]
     else:
-        print("ERROR - Nameserver not rechable")
+        print("Nameserver Error")
         exit()
+    
 
     if only_ipv4 == False and only_ipv6 == False:
         only_ipv6 = True
