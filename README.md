@@ -1,8 +1,3 @@
-# How it is working
-1. The libary checks at every run the ipv64 name server (195.201.223.103) for the ip of the given domain.  
-2. Next we check at [ipv4.ipapi.de](https://ipv4.ipapi.de) and [ipv6.ipapi.de](https://ipv6.ipapi.de) for your current IPv4 and IPv6.
-3. If the IPs are not the same (and not None -> e.g. there is no IPv6 or IPv4), the libary runs a GET request at ipv64.net to update your IP in the A or/and AAAA record.
-
 # How to install
 The libary is avilable at [pypi.org](https://pypi.org/project/pip/)
 
@@ -18,43 +13,33 @@ or
 # How to run
 ## INFO
 The Script did __NOT__ run in a loop, you need to run it manually.
+The Script is __NOT__ able to handle praefix - only the main domain can be updated
 
 ## Windows
 Update A and AAAA record if possible  
-```python -m ipv64 -d YOUR_DOMAIN.ipv64.net -uh YOUR_UPDATE_HASH -d DISCORD_WEBHOOK```
+```python -m ipv64 -d YOUR_DOMAIN.ipv64.net -k ACCOUNT_UPDATE_TOKEN -t TYPE```
 
 ## Linux
 Update A and AAAA record if possible  
-```/usr/bin/python3 -m ipv64 -d YOUR_DOMAIN.ipv64.net -uh YOUR_UPDATE_HASH -d DISCORD_WEBHOOK```
+```/usr/bin/python3 -m ipv64 -d YOUR_DOMAIN.ipv64.net -k ACCOUNT_UPDATE_TOKEN -t TYPE```
 
 ### run with cron
-#### check every minute
-```* * * * * /usr/bin/python3 -m ipv64 -d YOUR_DOMAIN.ipv64.net -uh YOUR_UPDATE_HASH -d DISCORD_WEBHOOK```
-#### check every 30 seconds
+#### check every minute with cron
+```* * * * * /usr/bin/python3 -m ipv64 -d YOUR_DOMAIN.ipv64.net -uh ACCOUNT_UPDATE_TOKEN -d DISCORD_WEBHOOK```
+#### check every 30 seconds with cron
 ```
-* * * * * /usr/bin/python3 -m ipv64 -d YOUR_DOMAIN.ipv64.net -uh YOUR_UPDATE_HASH -d DISCORD_WEBHOOK
-* * * * * sleep 30; /usr/bin/python3 -m ipv64 -d YOUR_DOMAIN.ipv64.net -uh YOUR_UPDATE_HASH -d DISCORD_WEBHOOK
+* * * * * /usr/bin/python3 -m ipv64 -d YOUR_DOMAIN.ipv64.net -k ACCOUNT_UPDATE_TOKEN -t TYPE
+* * * * * sleep 30; /usr/bin/python3 -m ipv64 -d YOUR_DOMAIN.ipv64.net -k ACCOUNT_UPDATE_TOKEN -t TYPE
 ```
 
 # Help
 ```python ipv64.py --help
-usage: ipv64.py [-h] -d DOMAIN -uh HASH [-p PREFIX] [-w WEBHOOK] [-gu GOTIFYURL] [-gt GOTIFYTOKEN] [-4] [-6]
+usage: ipv64.py [-h] -d DOMAIN -k KEY -t TYPE
 
 Update the IP for a domain on ipv64.net
 
-optional arguments:
-  -h, --help            show this help message and exit
-  -d DOMAIN, --domain DOMAIN
-                        The domain to update
-  -uh HASH, --hash HASH
-                        Your ipv64 Account Update Token
-  -p PREFIX, --prefix PREFIX
-                        The prefix for the domain
-  -w WEBHOOK, --webhook WEBHOOK
-                        The webhook url for discord notifications
-  -gu GOTIFYURL, --gotifyurl GOTIFYURL
-                        Your Gotify URL
-  -gt GOTIFYTOKEN, --gotifytoken GOTIFYTOKEN
-                        Your Gotify Token
-  -4, --ipv4            Update only the A record
-  -6, --ipv6            Update only the AAAA record```
+options:
+  -h, --help                  show this help message and exit
+  -d DOMAIN, --domain DOMAIN  The domain to update (e.g. test.ipv64.net)
+  -k KEY, --key KEY           Your ipv64 Account Update Token
+  -t TYPE, --type TYPE        The Update Type (A or AAAA)```

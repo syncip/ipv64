@@ -4,13 +4,7 @@ import socket
 import logging
 import json
 import time
-
-# =========================================
-# SETTINGS
-# =========================================
-APIKEY = "KEY"
-DOMAINNAME = "DOMAIN"
-DNSTYPE = "AAAA"
+import argparse
 
 # =========================================
 # version
@@ -158,19 +152,37 @@ def update_ipv64(machine_ip, domain_ip, domain, apikey, type):
             logging.warning(f"updater: {status} update successfull")
             status = True
 
+
+# =========================================
+# ARGPARSE
+# =========================================
+
+# if no inputs are given, show help
+parser = argparse.ArgumentParser(description='Update the IP for a domain on ipv64.net')
+# ipv64 Arguments
+parser.add_argument('-d', '--domain', help='The domain to update', required=True)
+parser.add_argument('-k', '--key', help='Your ipv64 Account Update Token', required=True)
+parser.add_argument('-t', '--type', help='The Update Type [A|AAAA]', default="", required=True)
+
+args = parser.parse_args()
+
+
+# =========================================
+# SETTINGS
+# =========================================
+APIKEY = args.key
+DOMAINNAME = args.domain
+DNSTYPE = args.type
+
 # =========================================
 # MAIN PART
 # =========================================
 
 # current machine ip
 machine_ip = get_ip(DNSTYPE)
-print(machine_ip)
 
 # current domain ip
 domain_ip = get_domain_details(DOMAINNAME, DNSTYPE)
-print(domain_ip)
 
 # update
 update = update_ipv64(machine_ip, domain_ip, DOMAINNAME, APIKEY, DNSTYPE)
-
-print(update)
