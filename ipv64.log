@@ -249,3 +249,157 @@
 2023-05-15 19:12:54,232: IPv6 from https://ipv6.ipapi.de: False
 2023-05-15 19:12:54,458: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
 2023-05-15 19:12:54,459: updater: no update required
+2023-05-15 19:14:31,842: IPv6 from https://ipv6.ipapi.de: False
+2023-05-15 19:14:31,999: nslookup type AAAA: error while nslookup - no data found for domain cloudflare.ipv64.net
+2023-05-15 19:14:35,119: updater: 200 update successfull
+2023-05-15 19:14:42,805: IPv6 from https://ipv6.ipapi.de: False
+2023-05-15 19:14:42,974: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:14:42,975: updater: no update required
+2023-05-15 19:14:59,562: IPv6 from https://ipv6.ipapi.de: False
+2023-05-15 19:15:00,257: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:15:00,257: updater: no update required
+2023-05-15 19:15:13,110: IPv6 from https://ipv6.ipapi.de: False
+2023-05-15 19:15:13,815: nslookup type AAAA: cloudflare2.ipv64.net: 2a01:4f8:202:2006::affe
+2023-05-15 19:15:13,942: updater: statuscode error 401
+2023-05-15 19:15:31,195: IPv6 from https://ipv6.ipapi.de: False
+2023-05-15 19:15:31,400: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:15:31,401: updater: no update required
+2023-05-15 19:15:33,833: IPv6 from https://ipv6.ipapi.de: False
+2023-05-15 19:15:33,996: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:15:33,997: updater: no update required
+2023-05-15 19:15:34,766: IPv6 from https://ipv6.ipapi.de: False
+2023-05-15 19:15:35,449: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:15:35,449: updater: no update required
+2023-05-15 19:16:15,704: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:16:15,923: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:16:15,924: updater: no update required
+2023-05-15 19:16:36,668: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:16:36,876: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:16:36,877: updater: no update required
+2023-05-15 19:16:39,006: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:16:39,182: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:16:39,183: updater: no update required
+2023-05-15 19:16:39,866: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:16:40,021: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:16:40,021: updater: no update required
+2023-05-15 19:16:40,697: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:16:40,849: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:16:40,850: updater: no update required
+2023-05-15 19:16:41,555: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:16:41,726: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:16:41,727: updater: no update required
+2023-05-15 19:16:42,394: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:16:42,571: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:16:42,572: updater: no update required
+2023-05-15 19:16:43,108: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:16:43,288: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:16:43,289: updater: no update required
+2023-05-15 19:16:43,845: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:16:43,993: nslookup type AAAA: error while nslookup - no data found for domain cloudflare.ipv64.net
+2023-05-15 19:16:49,097: updater: 200 update successfull
+2023-05-15 19:16:49,443: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:16:49,590: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:16:49,591: updater: no update required
+2023-05-15 19:17:49,449: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:17:49,680: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:17:49,681: updater: no update required
+2023-05-15 19:17:51,470: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:17:51,648: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:17:51,649: updater: no update required
+2023-05-15 19:17:52,480: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:17:52,686: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:17:52,688: updater: no update required
+2023-05-15 19:17:53,687: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:17:54,374: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:17:54,374: updater: no update required
+2023-05-15 19:17:55,678: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:17:56,352: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:17:56,353: updater: no update required
+2023-05-15 19:17:57,129: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:17:57,313: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:17:57,313: updater: no update required
+2023-05-15 19:17:58,214: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:17:58,870: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:17:58,871: updater: no update required
+2023-05-15 19:17:59,693: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:17:59,848: nslookup type AAAA: error while nslookup - no data found for domain cloudflare.ipv64.net
+2023-05-15 19:18:04,969: updater: 200 update successfull
+2023-05-15 19:18:42,671: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:18:42,836: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:18:42,837: updater: no update required
+2023-05-15 19:18:44,759: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:18:45,461: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:18:45,462: updater: no update required
+2023-05-15 19:18:47,490: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:18:47,658: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:18:47,658: updater: no update required
+2023-05-15 19:18:48,420: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:18:49,092: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:18:49,092: updater: no update required
+2023-05-15 19:18:49,920: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:18:50,097: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:18:50,098: updater: no update required
+2023-05-15 19:18:50,921: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:18:51,071: nslookup type AAAA: error while nslookup - no data found for domain cloudflare.ipv64.net
+2023-05-15 19:18:56,255: nslookup type AAAA: error while nslookup - no data found for domain cloudflare.ipv64.net
+2023-05-15 19:19:01,421: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:01,422: updater: no update required
+2023-05-15 19:19:19,616: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:19,820: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:19,821: updater: no update required
+2023-05-15 19:19:25,403: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:25,570: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:25,571: updater: no update required
+2023-05-15 19:19:26,364: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:26,560: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:26,561: updater: no update required
+2023-05-15 19:19:27,267: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:27,428: nslookup type AAAA: error while nslookup - no data found for domain cloudflare.ipv64.net - retry 1
+2023-05-15 19:19:32,614: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:32,614: updater: no update required
+2023-05-15 19:19:43,056: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:43,709: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:43,710: updater: no update required
+2023-05-15 19:19:51,239: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:51,412: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:51,413: updater: no update required
+2023-05-15 19:19:52,086: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:52,271: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:52,272: updater: no update required
+2023-05-15 19:19:52,859: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:53,039: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:53,039: updater: no update required
+2023-05-15 19:19:53,681: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:53,853: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:53,854: updater: no update required
+2023-05-15 19:19:54,384: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:55,050: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:55,050: updater: no update required
+2023-05-15 19:19:55,371: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:55,526: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:55,526: updater: no update required
+2023-05-15 19:19:56,267: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:56,418: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:56,419: updater: no update required
+2023-05-15 19:19:57,220: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:57,405: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:57,406: updater: no update required
+2023-05-15 19:19:58,000: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:58,161: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:58,162: updater: no update required
+2023-05-15 19:19:58,764: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:58,912: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:58,913: updater: no update required
+2023-05-15 19:19:59,664: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:59,838: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:19:59,839: updater: no update required
+2023-05-15 19:20:00,411: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:20:00,572: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:20:00,573: updater: no update required
+2023-05-15 19:20:01,116: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:20:01,281: nslookup type AAAA: error while nslookup - no data found for domain cloudflare.ipv64.net - retry 1
+2023-05-15 19:20:06,536: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:20:06,537: updater: no update required
+2023-05-15 19:20:07,055: IPv6 from https://ipv6.ipapi.de: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:20:07,318: nslookup type AAAA: cloudflare.ipv64.net: 2a02:2454:994d:c000:31e9:2493:cf4b:cb34
+2023-05-15 19:20:07,319: updater: no update required

@@ -48,7 +48,7 @@ def get_ip(type):
                 # if website statuscode = 200 (ok) then break the loop and take the given ip
                 if request4.status_code == 200:
                     ip = request4.text.replace(" ", "").replace("\n", "")
-                    logging.info(f"IPv4 from {website}: {ipv4}")
+                    logging.info(f"IPv4 from {website}: {ip}")
                     break
             except:
                 ip = False
@@ -61,7 +61,7 @@ def get_ip(type):
                 # if website statuscode = 200 (ok) then break the loop and take the given ip
                 if request6.status_code == 200:
                     ip = request6.text.replace(" ", "").replace("\n", "")
-                    logging.info(f"IPv6 from {website}: {ipv6}")
+                    logging.info(f"IPv6 from {website}: {ip}")
                     break
             except:
                 ip = False
@@ -77,7 +77,7 @@ def get_ip(type):
 # =========================================
 def get_domain_details(domain, type):
 
-    limit = 3
+    limit = 5
     i = 0
     ip = False
 
@@ -99,9 +99,9 @@ def get_domain_details(domain, type):
         # if response is empty
         if json_data == []:
             i += 1
-            logging.warning(f"nslookup type {type}: error while nslookup - no data found for domain {domain}")
-            time.sleep(3)
-            break
+            ip = False
+            logging.warning(f"nslookup type {type}: error while nslookup - no data found for domain {domain} - retry {i}")
+            time.sleep(5)
         else:
             try:
                 if type == "A":
@@ -115,8 +115,8 @@ def get_domain_details(domain, type):
                 logging.warning(f"nslookup type {type}: error while nslookup exit")
                 exit()
             
-        if ip != False:
-            logging.info(f"nslookup type {type}: {domain}: {ip}")
+            if ip != False:
+                logging.info(f"nslookup type {type}: {domain}: {ip}")
 
     return ip
 
