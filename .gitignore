@@ -4,3 +4,4 @@ src/ipv64.egg-info
 setup.cfg
 setup.py
 .pypirc
+ipv64.log
