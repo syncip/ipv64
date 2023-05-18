@@ -1,0 +1,20 @@
+#Deriving the latest base image
+FROM python:latest
+
+#Labels as key value pair
+LABEL version="1.0"
+LABEL MAINTAINER="R60"
+
+WORKDIR /
+
+# Download the git file
+RUN git clone https://github.com/syncip/ipv64.git
+
+# install the requirements
+RUN pip install -r /ipv64/requirements.txt
+
+# go to the working dir
+WORKDIR /ipv64/src
+
+# run the update script script
+CMD ["python", "ipv64.py", "-d ${DOMAIN} -t ${TYPE} -k ${UPDATE_TOKEN}"]
