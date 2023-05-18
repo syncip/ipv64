@@ -10,7 +10,7 @@ import argparse
 # =========================================
 # version
 # =========================================
-version = "0.5.2"
+version = "0.5.3"
 
 # =========================================
 # request User-Agent
@@ -184,8 +184,6 @@ APIKEY = args.key
 DOMAINNAME = args.domain
 DNSTYPE = args.type.upper()
 LOGLEVEL = args.loglevel.upper()
-DISCORD = args.discord
-NTFY = args.ntfy
 
 
 # =========================================
