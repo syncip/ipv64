@@ -6,8 +6,8 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
   name = 'ipv64',
-  version = '0.4.2',
-  description = 'Updater for ipv64.net',
+  version = '0.5.0',
+  description = 'Updater for ipv64.net - ATTENTION THIS VERSION IS NOT COMPATIBLE WITH THE 0.4.2!',
   author = 'R60',
   author_email = 'pypi.nmvk0@getrekt.win',
   url = 'https://github.com/syncip/ipv64',
@@ -16,8 +16,7 @@ setup(
   keywords = ['ipv64', 'dyndns', 'updater'],
   long_description=long_description,
   long_description_content_type='text/markdown',
-  install_requires=['dnspython==2.2.1',
-                    'requests==2.28.1',
+  install_requires=['requests==2.28.1',
                     'argparse==1.4.0',
                     ],
 )
