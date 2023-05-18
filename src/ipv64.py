@@ -5,7 +5,7 @@ import logging
 import json
 import time
 import argparse
-import message
+#import message
 
 # =========================================
 # version
@@ -170,8 +170,8 @@ parser.add_argument('-d', '--domain', help='The domain to update', required=True
 parser.add_argument('-k', '--key', help='Your ipv64 Account Update Token', required=True)
 parser.add_argument('-t', '--type', help='The Update Type [A|AAAA]', default="", required=True)
 parser.add_argument('--loglevel', help='Set the loglevel [DEBUG|INFO|WARNING|ERROR|CRITICAL]', default="CRITICAL", required=False)
-parser.add_argument('--discord', help='Your Discord Webhook for Update Messages', default=None, required=False)
-parser.add_argument('--ntfy', help='Your ntfy URL for Update Messages', default=None, required=False)
+#parser.add_argument('--discord', help='Your Discord Webhook for Update Messages', default=None, required=False)
+#parser.add_argument('--ntfy', help='Your ntfy URL for Update Messages', default=None, required=False)
 
 
 args = parser.parse_args()
