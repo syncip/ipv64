@@ -5,24 +5,25 @@ import logging
 import json
 import time
 import argparse
+import message
 
 # =========================================
 # version
 # =========================================
-version = "0.5.0"
+version = "0.5.1"
 
+# =========================================
 # request User-Agent
+# =========================================
 global headers, timeout
 headers = {
     'User-Agent': 'ipv64-updater/' + str(version),
 }
+
+# =========================================
+# settings
+# =========================================
 timeout = 10
-
-
-# logging
-#loglevel = logging.DEBUG
-loglevel = logging.INFO
-logging.basicConfig(filename='ipv64.log', encoding='utf-8', level=loglevel, format='%(asctime)s: %(message)s')
 
 # =========================================
 # get the current IP of the host
@@ -42,7 +43,7 @@ def get_ip(type):
                 # if website statuscode = 200 (ok) then break the loop and take the given ip
                 if request4.status_code == 200:
                     ip = request4.text.replace(" ", "").replace("\n", "")
-                    logging.info(f"IPv4 from {website}: {ip}")
+                    logging.debug(f"IPv4 from {website}: {ip}")
                     break
             except:
                 ip = False
@@ -55,7 +56,7 @@ def get_ip(type):
                 # if website statuscode = 200 (ok) then break the loop and take the given ip
                 if request6.status_code == 200:
                     ip = request6.text.replace(" ", "").replace("\n", "")
-                    logging.info(f"IPv6 from {website}: {ip}")
+                    logging.debug(f"IPv6 from {website}: {ip}")
                     break
             except:
                 ip = False
@@ -110,7 +111,7 @@ def get_domain_details(domain, type):
                 exit()
             
             if ip != False:
-                logging.info(f"nslookup type {type}: {domain}: {ip}")
+                logging.debug(f"nslookup type {type}: {domain}: {ip}")
 
     return ip
 
@@ -122,11 +123,15 @@ def update_ipv64(machine_ip, domain_ip, domain, apikey, type):
     # check if machine has a valid ip for the dns type
     if machine_ip == False:
         logging.warning(f"updater: machine has no ip: please choose other DNS type")
+        status = False
+        return status
         exit()
 
     # check if the right key is given
     if len(apikey) > 24:
         logging.warning(f"updater: wrong key, use the account update token")
+        status = False
+        return status
         exit()
 
     # check if type is A or AAAA
@@ -149,9 +154,10 @@ def update_ipv64(machine_ip, domain_ip, domain, apikey, type):
             exit()
 
         if status == 200:
-            logging.warning(f"updater: {status} update successfull")
+            logging.info(f"updater: {status} update successfull")
             status = True
 
+    return status
 
 # =========================================
 # ARGPARSE
@@ -163,6 +169,10 @@ parser = argparse.ArgumentParser(description='Update the IP for a domain on ipv6
 parser.add_argument('-d', '--domain', help='The domain to update', required=True)
 parser.add_argument('-k', '--key', help='Your ipv64 Account Update Token', required=True)
 parser.add_argument('-t', '--type', help='The Update Type [A|AAAA]', default="", required=True)
+parser.add_argument('--loglevel', help='Set the loglevel [DEBUG|INFO|WARNING|ERROR|CRITICAL]', default="CRITICAL", required=False)
+parser.add_argument('--discord', help='Your Discord Webhook for Update Messages', default=None, required=False)
+parser.add_argument('--ntfy', help='Your ntfy URL for Update Messages', default=None, required=False)
+
 
 args = parser.parse_args()
 
@@ -172,7 +182,19 @@ args = parser.parse_args()
 # =========================================
 APIKEY = args.key
 DOMAINNAME = args.domain
-DNSTYPE = args.type
+DNSTYPE = args.type.upper()
+LOGLEVEL = args.loglevel.upper()
+DISCORD = args.discord
+NTFY = args.ntfy
+
+
+# =========================================
+# loglevel
+# =========================================
+if LOGLEVEL == None:
+    LOGLEVEL = "CRITICAL"
+
+logging.basicConfig(filename='ipv64.log', encoding='utf-8', level=LOGLEVEL, format='%(asctime)s: %(message)s')
 
 # =========================================
 # MAIN PART
@@ -185,4 +207,5 @@ machine_ip = get_ip(DNSTYPE)
 domain_ip = get_domain_details(DOMAINNAME, DNSTYPE)
 
 # update
-update = update_ipv64(machine_ip, domain_ip, DOMAINNAME, APIKEY, DNSTYPE)
+status = update = update_ipv64(machine_ip, domain_ip, DOMAINNAME, APIKEY, DNSTYPE)
+print(status)
